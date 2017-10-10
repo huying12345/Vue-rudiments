@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实例4 参数与缩写</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		//一些指令能够接收一个“参数”，在指令名称之后以冒号表示。例如，v-bind 指令可以用于响应式地更新 HTML 属性：
+		<div id="app">
+			<a v-bind:href='url' target="_blank">>将a的href属性值与url值绑定</a>
+			<a v-on:click='doSomething' target="_blank">v-on 用于监听DOM事件</a>
+			<a :href='url' target="_blank">>v-bind:href='url'缩写</a>
+			<div @click='doSomething'>v-on:click='doSomething'</div>
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#app',
+				data:{
+					url:'https://www.baidu.com'
+				},	
+				methods:{
+					doSomething:function(){
+						alert(1);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

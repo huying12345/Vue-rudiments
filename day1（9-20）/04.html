@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-model事件双向绑定</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<input type="text" v-model='message'/>
+	</div>
+	</body>
+	<script type="text/javascript">
+		var app=new Vue({
+			el:'#app',//对象
+			data:{message:'Hello Vue.js!'},//数据	
+		})
+	</script>
+
+</html>

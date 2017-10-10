@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<style>
+		.active {
+			color: red;
+		}
+		
+		.text-danger {
+			background: yellow;
+		}
+		.static{
+			font-size: 30px;
+		}
+	</style>
+
+	<body>
+		<div id="app">
+			<span v-bind:class={active:isActive,'text-danger':hasError} class='static'>对应下面js代码第一种方式</span><br>
+			<span v-bind:class='objs' class='static'>对应下面js代码第二种方式</span>
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#app',
+				data:{
+					isActive:true,
+					hasError:true,
+					//两种方式效果一样
+					objs:{
+						active:true,
+						'text-danger':true
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

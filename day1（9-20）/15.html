@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>绑定返回对象的计算属性</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<style>
+		.active {
+			color: red;
+		}
+		
+		.text-danger {
+			background: yellow;
+		}
+		.static{
+			font-size: 30px;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div :class="[activeCls,errorCls]">将所有class属性值存储在一个数组中，绑定</div>
+			
+			<div :class="[isActive ? activeCls:'',errorCls]">如果你也想根据条件切换列表中的 class，可以用三元表达式</div>
+			
+			<div :class='[{active : isActive},errorCls]'>当有多个条件 class 时这样写有些繁琐。可以在数组语法中使用对象语法</div>
+		</div>
+		<script>
+			
+			var app = new Vue({
+				el: '#app',
+				data:{
+					isActive:true,
+					activeCls:'active',
+					errorCls:'text-danger'
+				}
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<my-p class="baz boo"></my-p>
+			<my-p :class='{active:isActive}'></my-p>
+		</div>
+
+	</body>
+	<script>
+		//声明自己的组件,用 my-component 来代替 p 标签
+		Vue.component('my-p', {
+			template: '<p class="foo bar">新添加的class属性值并不会覆盖原本存在的</p>'
+		});
+		var app = new Vue({
+			el: '#app',
+			data: {
+				isActive: true
+			}
+		})
+	</script>
+
+</html>

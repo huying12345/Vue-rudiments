@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+
+	<body>
+		<div>
+			<p>
+				当它们处于同一节点，v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。当你想为仅有的一些项渲染节点时，这种优先级的机制会十分有用，如下：
+			</p>
+			<div id="app">
+				<ul v-if="todos.length">
+					<li v-for="todo in todos">
+						{{ todo }}
+					</li>
+				</ul>
+				<p v-else>No todos left!</p>
+
+				<p>代码只传递了未 complete 的 todos。</p>
+			</div>
+			<button @click="fn()">点击</button>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					todos: {
+						name: 'John',
+						age: 33,
+						gender: 'femal',
+						love: 'swimming'
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+
+	<body>
+		<p>用 key 管理可复用的元素</p>
+		<p>注意，<label> 元素仍然会被高效地复用，因为它们没有添加 key 属性</p>
+		<div id="app">
+			<template v-if="loginType === 'username'">
+				<label>Username</label>
+				<input placeholder="Enter your username" key="username-input">
+			</template>
+			<template v-else>
+				<label>Email</label>
+				<input placeholder="Enter your email address" key="email-input">
+			</template>
+			<button @click='fn()'>Toggle login type</button>
+		</div>
+
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					loginType:'username',
+					onoff:false
+				},
+				methods: {
+					fn:function(){
+						if(this.onoff==false){
+							this.loginType==='username'
+						}
+						this.onoff=!this.onoff
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

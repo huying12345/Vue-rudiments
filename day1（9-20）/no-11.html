@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<p>{{firstName}}</p>
+			<input type="text" v-model='firstName' />
+			<p>{{lastName}}</p>
+			<input type="text" v-model='lastName' />
+			<h3>{{full('John Smith')}}</h3>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					firstName: 'John',
+					lastName: 'Smith'
+				},
+				computed: {
+					fullName: {
+						// getter
+						get: function() {
+							return this.firstName + ' ' + this.lastName
+						},
+						// setter
+						set: function(newValue) {
+							var names = newValue.split(' ')
+							this.firstName = names[0]
+							this.lastName = names[2]
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

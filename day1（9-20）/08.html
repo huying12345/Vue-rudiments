@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>实例3 使用JavaScript表达式</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			//here ,v-if根据表达式seen的值的真假来判断插入或者移除p元素
+			<p v-if='seen'>you can see me now</p>
+			<button v-on:click=noShow()>点我消失</button>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					seen: true,
+					onoff:true
+				},
+				methods: {
+					noShow: function() {
+						this.seen = !this.seen;
+						if(this.onoff==true) {
+							 document.getElementsByTagName('button')[0].innerText= '点我出现';
+						} else {
+							document.getElementsByTagName('button')[0].innerText= '点我消失';
+						}
+						this.onoff = !this.onoff
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

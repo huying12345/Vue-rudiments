@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>实例2 原始HTML</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+
+	<body>
+		<div id=app>
+			//该内容将被替换成rawHtml的内容，只可对安全内容进行动态渲染，对用户输入的数据不可进行，易被XXS攻击
+			<!--<div v-html='rawHtml'></div>-->
+
+			//文本读取只能将数据解释为普通文本
+			<div>{{rawHtml}}</div>
+			
+			//真正的HTML代码解释
+			<div v-html='rawHtml'></div>
+			
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					rawHtml:'<b>粗体字</b><br><i>斜体</i>'
+				}
+			})
+		</script>
+	</body>
+
+</html>

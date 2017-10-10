@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修饰符</title>
+	</head>
+	<body id="app">
+		<h2>在默认情况下，v-model在input事件中同步输入框的值与数据，若添加修饰符lazy则转变为在change事件中同步</h2>
+		<input v-model.lazy='msg' />
+		<h2>.trim 如果需要自动过滤用户输入的首位空格，可以添加trim修饰符</h2>
+		<input v-model.trim="msg">
+		<h2>.number 自动将用户输入的值转化为number类型值</h2>
+		<input type="number" v-model.number='msg'/>
+	</body>
+	<script>
+		var app=new Vue(
+			el:'#app',
+			data:{
+				msg:'hello Vue!'
+			}
+		)
+	</script>
+</html>

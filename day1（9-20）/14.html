@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>绑定返回对象的计算属性</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<style>
+		.active {
+			color: red;
+		}
+		
+		.text-danger {
+			background: yellow;
+		}
+		.static{
+			font-size: 30px;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div :class="classObject">class属性值active（字体为红色）显示，‘text-danger’（背景为黄色）隐藏</div>
+		</div>
+		<script>
+			console.log(true && true);//true
+			console.log(null && false);//null
+			
+			
+			var app = new Vue({
+				el: '#app',
+				data: {
+					isActive: true,
+					error: null
+				},
+				computed: {
+					classObject: function() {
+						return {
+							active: this.isActive && !this.error,//true && true 
+							'text-danger': this.error && this.error.type ==='fatal' //null && false
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

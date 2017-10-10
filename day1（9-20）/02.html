@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Vue Start!</title>
+<script  src="https://unpkg.com/vue"></script>
+</head>
+<style>
+	*{margin: 0;padding: 0;}
+	html{font: 100%;}
+	li:{list-style: none;}
+</style>
+<body>
+	<div id="app">
+    	<ol>
+        	<li v-for="i in todos">{{i.id}}.{{i.text}}</li>
+        </ol>
+    </div>
+</body>
+<script>
+	var app=new Vue({
+			el:'#app',
+			data:{
+					todos:[
+						{id:0,text:'Eglish'},
+						{id:1,text:'Chinese'},
+						{id:2,text:'Africa'},
+						{id:3,text:'Tokyo'}
+					]
+				}
+		})
+</script>
+</html>

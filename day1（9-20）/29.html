@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>一个组件的  v-for</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>在自定义的组件中，可以像任何普通元素一样使用v-for</p>
+			<my-component v-for="(item,key,index) in items" 
+				:key="item.id"
+				:item="item"
+				:index="index">{{item}}<br/></my-component><br />
+			<b>在组件中使用 v-for 时，key 现在是必须的</b>
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#app',
+				data:{
+					items: {
+						name: 'John',
+						age: 33,
+						gender: 'femal',
+						love: 'swimming'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

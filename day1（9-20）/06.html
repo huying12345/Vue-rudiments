@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实例1 v-once</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			//加上v-once，绑定的数据值就永远以第一次的值为准不会发生改变
+			<span v-once>这个内容将不会发生改变:<br>{{message}}</span><br>
+			<input type="text" v-model='message'/>
+			<p>
+				<button v-on:click=fn()>弹出框</button>
+			</p>
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#app',
+				data:{
+					message:'Hello Vue.js!'
+					},
+				methods:{
+					fn:function(){
+						alert(1);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

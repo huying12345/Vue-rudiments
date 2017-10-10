@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>取值v-for</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<ul id="app">
+			<li v-for="n in 100">
+				{{n}}
+			</li>
+		</ul>
+		<script>
+			var app=new Vue({
+				el:'#app',
+			})
+		</script>
+	</body>
+</html>

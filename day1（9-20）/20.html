@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-show 渲染</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1 v-show="ok">Hello!</h1>
+			<p>v-show 是简单地切换元素的 CSS 属性 display</p>
+			<p>v-show 不支持template语法和v-else</p>
+			<p>当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。</p>
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#app',
+				data:{
+					ok:true
+				},
+				methods:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>列表渲染 v-for</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul id="ul-1">
+				<!--item 是数组items元素迭代的别名-->
+				<li v-for='item in items'>
+					{{item.id}}--{{item.text}}
+				</li>
+			</ul>
+			<ol id='ol-1'>
+				<!--也可以用of来替换in,一样的效果-->
+				<li v-for="(item,i) of items">
+					{{parentName}}--{{i}}--{{item.text}}
+				</li>
+			</ol>
+			
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#ul-1',
+				data:{
+					items:[
+					{id:0,text:'Orange'},
+					{id:1,text:'Apple'},
+					{id:2,text:'Banana'}
+					]
+				}
+			});
+			var app=new Vue({
+				el:'#ol-1',
+				data:{
+					parentName:'Parent',
+					items:[
+					{text:'Orange'},
+					{text:'Apple'},
+					{text:'Banana'}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>

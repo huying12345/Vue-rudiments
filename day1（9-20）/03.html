@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on动作事件</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<button v-on:click='reverseMessage'>逆转消息</button>
+	</div>
+	</body>
+	<script type="text/javascript">
+		var app=new Vue({
+			el:'#app',//对象
+			data:{message:'Hello Vue.js!'},//数据
+			methods:{//方法
+				reverseMessage:function(){
+					this.message=this.message.split('').reverse().join('')
+					}
+			}
+			
+		})
+	</script>
+
+</html>

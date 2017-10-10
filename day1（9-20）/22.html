@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>一个对象的v-for</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<h2>你也可以用 v-for 通过一个对象的属性来迭代</h2>
+		<ul id="v-for-obj">
+			<li v-for="value in obj">
+				{{value}}
+			</li><br />
+			<h2>你也可以提供第二个的参数为键名</h2>
+			<div v-for="(value,key) in obj">
+				{{key}} : {{value}}
+			</div>
+			<br />
+			<h2>第三个参数作为索引值</h2>
+			<div v-for="(value,key,index) in obj">
+				{{index}}. {{key}} : {{value}}
+			</div>
+		</ul>
+		
+		<script>
+			var app=new Vue({
+				el:'#v-for-obj',
+				data:{
+					obj:{
+						firstName:'John',
+						lastName:'Smith',
+						age:30,
+						gender:"Femal"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

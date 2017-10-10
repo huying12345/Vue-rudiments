@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<style>
+		
+	</style>
+	<body>
+		<div id="app">
+			<div :style='styleObj'>style内联样式绑定</div>
+			<div :style='[baseStyles,overridingStyles]' id="div">数组对象绑定</div>
+			<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">这会渲染数组中最后一个被浏览器支持的值。在这个例子中，如果浏览器支持不带浏览器前缀的 flexbox，那么渲染结果会是 display: flex。</div>
+		</div>
+		<script>
+			var app=new Vue({
+				el:'#app',
+				data:{
+					styleObj:{
+						fontSize:'22px',
+						backgroundColor:'blue',
+						color:'#fff'
+					},
+					baseStyles:{color:'#000',fontSize:'16px'},
+					overridingStyles:{backgroundColor:'yellow'}
+				}
+			})
+		</script>
+	</body>
+</html>
