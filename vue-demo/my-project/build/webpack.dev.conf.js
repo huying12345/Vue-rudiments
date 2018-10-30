@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const axios = require('axios')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -22,6 +23,22 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
+    before (app){
+      app.get('/api/getDescList', function (requset, response) {
+        const url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+        axios.get(url, {
+          header: {
+            authority: 'u.y.qq.com',
+            Referer: 'https://y.qq.com/?ADTAG=myqq',
+          },
+          param: requset.query
+        }).then ((res) => {
+          response.json(res.data)
+        }).catch((e) => {
+          console.log(e)
+        })
+      })
+    },
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [

@@ -23,33 +23,43 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Slider from 'base/slider/slider'
-  import {getRecommend} from 'api/recommend'
-  import {ERR_OK} from 'api/config'
+import Slider from 'base/slider/slider'
+import {getRecommend, getDescList} from 'api/recommend'
+import {ERR_OK} from 'api/config'
 
-  export default {
-    data() {
-      return {
-        recommends:[]
-      }
-    },
-    created () {
-      this._getRecommend()
-    },
-    methods: {
-      _getRecommend () {
-        getRecommend().then((res) => {
-          if(res.code === ERR_OK) {
-            // console.log(res.data.slider)
-            this.recommends = res.data.slider
-          }
-        })
-      }
-    },
-    components: {
-      Slider
+export default {
+  data () {
+    return {
+      recommends: [],
+      descList: []
     }
+  },
+  created () {
+    this._getRecommend()
+    this._getDescList()
+  },
+  methods: {
+    _getRecommend () {
+      getRecommend().then((res) => {
+        if (res.code === ERR_OK) {
+          // console.log(res.data.slider)
+          this.recommends = res.data.slider
+        }
+      })
+    },
+    _getDescList () {
+      getDescList().then((res) => {
+        if (res.code === ERR_OK) {
+          // this.descList = res.data.slider
+          console.log(res.data)
+        }
+      })
+    }
+  },
+  components: {
+    Slider
   }
+}
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
