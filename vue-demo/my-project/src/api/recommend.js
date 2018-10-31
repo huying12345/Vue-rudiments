@@ -12,15 +12,18 @@ export function getRecommend () {
   return jsonp(url, data, options)
 }
 
-export function getDescList () {
-  const url = '/api/getDescList'
+export function getDiscList () {
+  const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {
-    loginUin: 0,
+    platform: 'yqq',
     hostUin: 0,
-    format: 'jsonp',
-    platform: 'yqqm',
+    sin: 0,
+    ein: 29,
+    sortId: 5,
     needNewCode: 0,
-    data: '{"comm":{"ct":24},"playlist":{"method":"get_playlist_by_category","param":{"id":3313,"curPage":1,"size":40,"order":5,"titleid":3313},"module":"playlist.PlayListPlazaServer"}}'
+    categoryId: 10000000,
+    rnd: Math.random(),
+    format: 'json'
   })
   return axios.get(url, {
     params: data
