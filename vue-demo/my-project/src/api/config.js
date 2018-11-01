@@ -1,7 +1,7 @@
 //公共配置
 //公共请求的参数和值
 export const commonParams = {
-  g_tk: 5381,
+  g_tk: 1928093487,
   inCharset: 'utf-8',
   outCharset: 'utf-8',
   notice: 0,
@@ -10,7 +10,8 @@ export const commonParams = {
 
 //jsonp请求的callback参数名
 export const options = {
-  param: 'jsonpCallback'
+  param: 'jsonpCallback',
+  prefix: 'jp'
 }
 
 //请求成功的code值

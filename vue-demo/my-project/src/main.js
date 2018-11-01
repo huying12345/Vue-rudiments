@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'babel-polyfill' /* 补丁 */
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 import fastclick from 'fastclick'
@@ -13,6 +14,7 @@ fastclick.attach(document.body) /*解决移动端点击事件的300ms延迟问�
 Vue.use(VueLazyLoad, {
   loading: require('common/image/default.png')
 })
+Vue.use(Vuex)
 // Vue.config.productionTip = false
 
 /* eslint-disable no-new */
