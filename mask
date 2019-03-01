@@ -1,0 +1,69 @@
+<template>
+  <div class="F-mask-container" v-show='visible'>
+    <div class="F-mask" :style="opacityDegree" @touchmove.prevent @click="handleClick"></div>
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'f-mask',
+  data () {
+    return {}
+  },
+  watch: {
+    visible (val) {
+      let msgDom = this.$el.getElementsByClassName('F-mask-container')[0]
+      if (msgDom) {
+        if (val) {
+          msgDom.style.overflow = 'hidden'
+        } else {
+          msgDom.style.overflow = 'auto'
+        }
+      }
+    }
+  },
+  methods: {
+    handleClick (evt) {
+      this.$emit('click', evt)
+    }
+  },
+  computed: {
+    opacityDegree () {
+      return {
+        'opacity': this.opacity,
+        '-webkit-opacity': this.opacity,
+        '-moz-opacity': this.opacity,
+        'filter': 'alpha(opacity =' + this.opacity * 100 + ')'
+      }
+    }
+  },
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    },
+    opacity: {
+      type: String,
+      default: 0.6
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+  .F-mask-container {
+    position: fixed;
+    z-index: 1100;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    .F-mask{
+      width:100%;
+      height:100%;
+      background-color: black;
+    }
+  }
+</style>
