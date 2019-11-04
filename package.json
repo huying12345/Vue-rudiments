@@ -20,7 +20,7 @@
     "build prod": "node build/build.js prod"
   },
   "dependencies": {
-    "lodash": "4.17.4",
+    "lodash": "4.17.15",
     "sa-sdk-javascript": "^1.10.1",
     "sinon": "^4.0.0",
     "vendor": "^1.7.0",
