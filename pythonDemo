@@ -70,3 +70,5 @@ a=RWfile(proPath, inp, oup);
 a.read_excel();
 outPath = oup or os.getcwd()+'\\导出.xlsx';
 print('导出完毕，请在：'+ outPath +'目录下查看')
+
+python文件生成python pyinstaller.py -F xxx
